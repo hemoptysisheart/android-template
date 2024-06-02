@@ -59,6 +59,7 @@ android {
 
 dependencies {
     implementation(project(":model"))
+    implementation(project(":viewmodel"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
