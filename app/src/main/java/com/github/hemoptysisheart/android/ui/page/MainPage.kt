@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +16,7 @@ import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.hemoptysisheart.android.ui.atom.AndroidTemplateTheme
 import com.github.hemoptysisheart.android.viewmodel.MainViewModel
 import java.time.Instant
@@ -27,7 +27,7 @@ fun MainPage(
 ) {
     Log.v(TAG, "#MainPage args : viewModel=$viewModel")
 
-    val clock by viewModel.clock.collectAsState()
+    val clock by viewModel.clock.collectAsStateWithLifecycle()
 
     MainPageContent(clock)
 }
@@ -50,10 +50,10 @@ private fun MainPageContent(
 }
 
 @Composable
-@PreviewScreenSizes
+@PreviewDynamicColors
 @PreviewFontScale
 @PreviewLightDark
-@PreviewDynamicColors
+@PreviewScreenSizes
 fun MainPagePreview() {
     AndroidTemplateTheme {
         MainPageContent(Instant.now())

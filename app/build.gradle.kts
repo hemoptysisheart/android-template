@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.hilt.navigation)
     implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
