@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewDynamicColors
@@ -17,12 +19,25 @@ import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.github.hemoptysisheart.android.ui.atom.AndroidTemplateTheme
 import com.github.hemoptysisheart.android.viewmodel.MainViewModel
+import java.time.Instant
 
 @Composable
 fun MainPage(
     viewModel: MainViewModel = hiltViewModel()
 ) {
     Log.v(TAG, "#MainPage args : viewModel=$viewModel")
+
+    val clock by viewModel.clock.collectAsState()
+
+    MainPageContent(clock)
+}
+
+@Composable
+private fun MainPageContent(
+    clock: Instant
+) {
+    Log.v(TAG, "#MainPageContent args : clock=$clock")
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -30,7 +45,7 @@ fun MainPage(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Hello, Android!", color = MaterialTheme.colorScheme.onBackground)
+        Text(text = clock.toString(), color = MaterialTheme.colorScheme.onBackground)
     }
 }
 
@@ -41,6 +56,6 @@ fun MainPage(
 @PreviewDynamicColors
 fun MainPagePreview() {
     AndroidTemplateTheme {
-        MainPage()
+        MainPageContent(Instant.now())
     }
 }
