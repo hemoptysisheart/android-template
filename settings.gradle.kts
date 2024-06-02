@@ -25,6 +25,7 @@ rootProject.name = "android-template"
 
 include(
     ":app",
+    ":ui",
     ":viewmodel",
     ":model"
 )

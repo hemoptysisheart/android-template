@@ -35,6 +35,7 @@ android {
 
 dependencies {
     implementation(project(":model"))
+
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.core)
     implementation(libs.hilt)
