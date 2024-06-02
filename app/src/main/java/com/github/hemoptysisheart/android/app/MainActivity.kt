@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.github.hemoptysisheart.android.model.SampleModel
 import com.github.hemoptysisheart.android.ui.atom.AndroidTemplateTheme
 import com.github.hemoptysisheart.android.ui.page.MainPage
@@ -29,7 +31,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AndroidTemplateTheme {
-                MainPage()
+                CompositionLocalProvider(
+                    LocalLifecycleOwner provides androidx.compose.ui.platform.LocalLifecycleOwner.current
+                ) {
+                    MainPage()
+                }
             }
         }
     }
