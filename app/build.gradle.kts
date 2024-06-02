@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.github.hemoptysisheart.android"
-        minSdk = 29
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "0.0.1"

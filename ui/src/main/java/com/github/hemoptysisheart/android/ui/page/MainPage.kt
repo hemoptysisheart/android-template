@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -19,6 +18,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.github.hemoptysisheart.android.ui.atom.AndroidTemplateTheme
 import com.github.hemoptysisheart.android.viewmodel.MainViewModel
+import com.github.hemoptysisheart.ui.compose.OutlinedTextField
+import com.github.hemoptysisheart.ui.state.SimpleTextFieldState
 import java.time.Instant
 
 @Composable
@@ -45,7 +46,7 @@ private fun MainPageContent(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = clock.toString(), color = MaterialTheme.colorScheme.onBackground)
+        OutlinedTextField(state = SimpleTextFieldState(clock.toString()))
     }
 }
 
