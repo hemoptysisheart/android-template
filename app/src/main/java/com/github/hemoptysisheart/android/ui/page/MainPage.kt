@@ -1,5 +1,6 @@
 package com.github.hemoptysisheart.android.ui.page
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,10 +14,15 @@ import androidx.compose.ui.tooling.preview.PreviewDynamicColors
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.github.hemoptysisheart.android.ui.atom.AndroidTemplateTheme
+import com.github.hemoptysisheart.android.viewmodel.MainViewModel
 
 @Composable
-fun MainPage() {
+fun MainPage(
+    viewModel: MainViewModel = hiltViewModel()
+) {
+    Log.v(TAG, "#MainPage args : viewModel=$viewModel")
     Column(
         modifier = Modifier
             .fillMaxSize()
