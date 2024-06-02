@@ -1,4 +1,4 @@
-package com.github.hemoptysisheart.android.ui.theme
+package com.github.hemoptysisheart.android.ui.atom
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
