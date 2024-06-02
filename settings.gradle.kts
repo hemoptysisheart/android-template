@@ -18,6 +18,18 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            val properties = java.util.Properties()
+            properties.load(rootProject.projectDir.resolve("local.properties").inputStream())
+
+            url = uri("https://maven.pkg.github.com/hemoptysisheart/packages")
+            credentials {
+                username = properties["publish.user"] as String?
+                    ?: System.getenv("GITHUB_ACTOR")
+                password = properties["publish.token"] as String?
+                    ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
 
