@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.hemoptysisheart.ui.compose)
+    implementation(libs.hemoptysisheart.ui.navigation)
     implementation(libs.hilt)
 
     ksp(libs.hilt.compiler)

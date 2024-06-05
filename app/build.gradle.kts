@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.hemoptysisheart.ui.navigation)
     implementation(libs.hilt)
 
     ksp(libs.hilt.compiler)
