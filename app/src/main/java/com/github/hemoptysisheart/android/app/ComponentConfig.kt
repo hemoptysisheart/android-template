@@ -2,6 +2,8 @@ package com.github.hemoptysisheart.android.app
 
 import android.util.Log
 import com.github.hemoptysisheart.android.model.SampleModel
+import com.github.hemoptysisheart.statepump.ScaffoldPump
+import com.github.hemoptysisheart.statepump.ScaffoldPumpImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,4 +24,10 @@ class ComponentConfig {
         Log.d(TAG, "#provideSampleModel return : model=$model")
         return model
     }
+
+    @Deprecated("See https://github.com/hemoptysisheart/android-library/issues/25")
+    @Provides
+    @Singleton
+    @Suppress("DeprecatedCallableAddReplaceWith")
+    fun provideScaffoldPump(): ScaffoldPump = ScaffoldPumpImpl()
 }
